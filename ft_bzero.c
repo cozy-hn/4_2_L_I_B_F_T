@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:52:07 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/13 20:05:32 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/15 15:28:11 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
+	unsigned char	*tmp;
+
+	tmp = (unsigned char *)s;
 	while (n--)
-		*((unsigned char *)s++) = 0;
+		*(tmp++) = 0;
 }

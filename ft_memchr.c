@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:40:30 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/13 20:46:17 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/15 16:52:29 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*tmp;
+	unsigned char	*tmp;
 
-	tmp = (char *)s;
+	tmp = (unsigned char *)s;
 	while (n--)
 	{
-		if (*tmp == c)
+		if (*tmp == (unsigned char)c)
 			return (tmp);
 		tmp++;
 	}

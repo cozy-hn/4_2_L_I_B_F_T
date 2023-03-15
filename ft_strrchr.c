@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:01:32 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/13 20:31:21 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/15 16:42:21 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*tmp;
-	int		slen;
+	char			*tmp;
+	int				slen;
+	unsigned char	tmpc;
 
+	tmpc = (unsigned char)c;
 	tmp = (char *)s;
 	slen = ft_strlen(s);
+	if (tmpc == 0)
+		return (&tmp[slen]);
 	if (slen == 0)
 		return ((void *)0);
-	while (slen)
+	while (slen > -1)
 	{
-		if (tmp[slen] == c)
+		if (tmp[slen] == tmpc)
 			return ((tmp + slen));
 		slen--;
 	}
