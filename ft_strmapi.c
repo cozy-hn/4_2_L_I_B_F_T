@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 21:54:32 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/17 13:28:30 by jiko             ###   ########.fr       */
+/*   Created: 2023/03/17 14:28:35 by jiko              #+#    #+#             */
+/*   Updated: 2023/03/17 14:54:47 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*tmp;
-	int		s1_len;
-	int		s2_len;
+	char	*rtn;
+	int		len;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	tmp = ft_calloc(s1_len + s2_len + 1, 1);
-	if (!tmp)
-		return (tmp);
-	ft_strlcat(tmp, (char *)s1, s1_len + 1);
-	ft_strlcat(tmp, (char *)s2, s1_len + s2_len + 1);
-	return (tmp);
+	len = ft_strlen(s);
+	rtn = ft_calloc(len + 1, 1);
+	if (!rtn)
+		return (NULL);
+	while (len)
+	{
+		rtn[len - 1] = (*f)(len - 1, s[len - 1]);
+		len--;
+	}
+	return (rtn);
 }

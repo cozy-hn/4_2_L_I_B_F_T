@@ -6,13 +6,13 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 19:43:28 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/16 21:12:32 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/17 13:30:21 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_in(char c, char *set)
+static int	is_in(char c, char *set)
 {
 	while (*set)
 	{
@@ -23,7 +23,7 @@ int	is_in(char c, char *set)
 	return (0);
 }
 
-int	find_first(char const *s1, char const *set)
+static int	find_first(char const *s1, char const *set)
 {
 	int	i;
 

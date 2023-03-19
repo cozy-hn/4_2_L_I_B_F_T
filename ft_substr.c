@@ -6,24 +6,23 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:13:48 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/15 21:46:28 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/17 14:09:14 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*alloc_zero(void)
+static char	*alloc_zero(void)
 {
 	char	*tmp;
 
-	tmp = malloc(1);
+	tmp = ft_calloc(1, 1);
 	if (!tmp)
 		return (NULL);
-	*tmp = '\0';
 	return (tmp);
 }
 
-char	*alloc(char const *s, unsigned int st, size_t len, unsigned int *strl)
+static char	*al(char const *s, unsigned int st, size_t len, unsigned int *strl)
 {
 	char	*tmp;
 	int		idx;
@@ -35,12 +34,11 @@ char	*alloc(char const *s, unsigned int st, size_t len, unsigned int *strl)
 	{
 		if (*strl > st + len)
 		{
-			tmp = malloc(len + 1);
+			tmp = ft_calloc(len + 1, 1);
 			if (!tmp)
 				return (NULL);
 			while (len--)
 				tmp[idx++] = s[st++];
-			tmp[idx] = '\0';
 		}
 		else
 			tmp = (char *)ft_strdup(((char *)s + st));
@@ -54,6 +52,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	strl;
 
 	strl = (unsigned int)ft_strlen(s);
-	tmp = alloc(s, start, len, &strl);
+	tmp = al(s, start, len, &strl);
 	return ((char *)tmp);
 }

@@ -6,23 +6,23 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 22:36:40 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/16 23:03:48 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/17 13:20:23 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_deli(char c, char c2)
+static int	is_deli(char c, char c2)
 {
 	if (c == c2)
 		return (1);
 	return (0);
 }
 
-void	check_word_set_i(const char *str, char c, int *num_word, int i)
+static void	check_word_set_i(const char *str, char c, int *num_word, int *i)
 {
-	*num_word = 0;
 	*i = 0;
+	*num_word = 0;
 	while (*str)
 	{
 		while (is_deli(*str, c) && *str)
@@ -38,7 +38,7 @@ void	check_word_set_i(const char *str, char c, int *num_word, int i)
 	}
 }
 
-void	set_size_word(const char *str, char c, int *size_word)
+static void	set_size_word(const char *str, char c, int *size_word)
 {
 	*size_word = 0;
 	while (*str)
@@ -48,6 +48,14 @@ void	set_size_word(const char *str, char c, int *size_word)
 		if (is_deli(*str, c))
 			break ;
 	}
+}
+
+static char	**dobi_free(int i, char	**be_return)
+{
+	while (i != -1)
+		free(be_return[i--]);
+	free(be_return);
+	return (NULL);
 }
 
 char	**ft_split(char const *str, char c)
@@ -69,12 +77,7 @@ char	**ft_split(char const *str, char c)
 			set_size_word(str, c, &size_word);
 			be_return[i] = ft_calloc(size_word + 1, 1);
 			if (!be_return[i])
-			{
-				while (i != -1)
-					free(be_return[i--]);
-				free(be_return);
-				return (NULL);
-			}
+				return (dobi_free(i, be_return));
 			ft_strlcpy(be_return[i++], str, size_word + 1);
 			str += size_word;
 		}

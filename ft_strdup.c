@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:42:13 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/15 18:05:56 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/17 14:00:30 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_strdup(const char *src)
 	{
 		while (*src)
 			*tmp++ = *src++;
-		*tmp = '\0';
 		return (cp);
 	}
 	return (NULL);
