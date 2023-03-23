@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:13:12 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/20 17:51:36 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/23 22:38:30 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstnew(void *content)
 
 	rtn = ft_calloc(1, sizeof(t_list));
 	if (!rtn)
-		return (rtn);
+		return (NULL);
 	rtn->content = content;
 	return (rtn);
 }

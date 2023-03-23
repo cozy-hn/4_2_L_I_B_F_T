@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:40:30 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/15 16:52:29 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/23 22:40:02 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (tmp);
 		tmp++;
 	}
-	return ((void *)0);
+	return (NULL);
 }

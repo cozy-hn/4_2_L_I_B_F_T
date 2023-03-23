@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:01:32 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/15 16:42:21 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/23 22:57:35 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((tmp + slen));
 		slen--;
 	}
-	return ((void *)0);
+	return (NULL);
 }
