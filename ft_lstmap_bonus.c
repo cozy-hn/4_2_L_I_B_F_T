@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:12:43 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/20 22:34:23 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/20 22:41:55 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		tmp->next = ft_lstnew(dobi);
 		if (!(tmp->next))
 		{
-			(*del)(dobi);
 			ft_lstclear(&rtn, del);
-			return (NULL);
+			return (dobi_free(dobi, del));
 		}
 		lst = lst->next;
 		tmp = tmp->next;
