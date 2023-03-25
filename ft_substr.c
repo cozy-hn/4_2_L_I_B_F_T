@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:13:48 by jiko              #+#    #+#             */
-/*   Updated: 2023/03/17 14:09:14 by jiko             ###   ########.fr       */
+/*   Updated: 2023/03/25 13:41:37 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*al(char const *s, unsigned int st, size_t len, unsigned int *strl)
 		else
 			tmp = (char *)ft_strdup(((char *)s + st));
 	}
-	return ((char *)tmp);
+	return (tmp);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -53,5 +53,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	strl = (unsigned int)ft_strlen(s);
 	tmp = al(s, start, len, &strl);
-	return ((char *)tmp);
+	return (tmp);
 }
